@@ -29,7 +29,7 @@ export const CardBox = (props: any) => {
             id: 1,
             title: 'Card 1',
             desc: desc,
-            image: 'https://th.bing.com/th/id/OIP.QC-Su_ie-QzKBtY74XNNIgHaJ-?rs=1&pid=ImgDetMain',
+            image: 'https://imgwork.tooopen.com/20210518/tooopen_v1737383738f6468c8b-bd40-43b0-8e5c-629c01543182.jpg',
             currentStep: 0,
             currentStepDesc: "waiting apply"
         },
@@ -37,7 +37,7 @@ export const CardBox = (props: any) => {
             id: 2,
             title: 'Card 1',
             desc: desc,
-            image: 'https://th.bing.com/th/id/OIP.QC-Su_ie-QzKBtY74XNNIgHaJ-?rs=1&pid=ImgDetMain',
+            image: 'https://imgwork.tooopen.com/20210518/tooopen_v1737383738f6468c8b-bd40-43b0-8e5c-629c01543182.jpg',
             currentStep: 1,
             currentStepDesc: "applying"
         },
@@ -46,7 +46,7 @@ export const CardBox = (props: any) => {
             id: 3,
             title: 'Card 1',
             desc: desc,
-            image: 'https://th.bing.com/th/id/OIP.QC-Su_ie-QzKBtY74XNNIgHaJ-?rs=1&pid=ImgDetMain',
+            image: 'https://imgwork.tooopen.com/20210518/tooopen_v1737383738f6468c8b-bd40-43b0-8e5c-629c01543182.jpg',
             currentStep: 0,
             currentStepDesc: "waiting apply"
         },
@@ -55,7 +55,7 @@ export const CardBox = (props: any) => {
             id: 4,
             title: 'Card 1',
             desc: desc,
-            image: 'https://th.bing.com/th/id/OIP.QC-Su_ie-QzKBtY74XNNIgHaJ-?rs=1&pid=ImgDetMain',
+            image: 'https://imgwork.tooopen.com/20210518/tooopen_v1737383738f6468c8b-bd40-43b0-8e5c-629c01543182.jpg',
             currentStep: 2,
             currentStepDesc: "waiting apply"
         },
@@ -77,7 +77,7 @@ export const CardBox = (props: any) => {
         <div>
             <Button onClick={() => {
                 setIsModalOpen(true)
-            }} style={{marginLeft: '10px', marginTop: '10px'}} type={'primary'}> 创建一个证书</Button>
+            }} style={{marginLeft: '10px', marginTop: '10px'}} type={'primary'}> Publish a message</Button>
         </div>
         <div style={{
             display: 'flex',
@@ -120,7 +120,7 @@ export const CardBox = (props: any) => {
                         </Popover>
                     </div>
                     <Button type="primary">apply</Button>
-                    <Button style={{marginLeft: '10px', marginTop: '10px'}} type={'primary'}> 审批证书</Button>
+                    <Button style={{marginLeft: '10px', marginTop: '10px'}} type={'primary'}> post a comment</Button>
                 </Card>
 
             ))}
