@@ -1,0 +1,134 @@
+import {Button, Card, Modal, Popover, Steps} from "antd";
+import {CheckCircleOutlined, LoadingOutlined} from "@ant-design/icons";
+import React, {useState} from "react";
+import ReactQuill from "react-quill";
+import HTMLPreview from "./HTMLPreview";
+import CreateCommonForm from "./CreateCommonForm";
+
+
+const {Step} = Steps;
+export const CardBox = (props: any) => {
+
+
+    const desc = "<!DOCTYPE html>\n" +
+        "<html lang=\"en\">\n" +
+        "<head>\n" +
+        "    <meta charset=\"UTF-8\">\n" +
+        "    <title>Title</title>\n" +
+        "</head>\n" +
+        "<body>\n" +
+        " <div>sss</div>\n" +
+        "<strong>assaas</strong>\n" +
+        "</body>\n" +
+        "</html>";
+
+
+    const [cardInfoList, setCardInfoList] = useState([
+        {
+            id: 1,
+            title: 'Card 1',
+            desc: desc,
+            image: 'https://imgwork.tooopen.com/20210518/tooopen_v1737383738f6468c8b-bd40-43b0-8e5c-629c01543182.jpg',
+            currentStep: 0,
+            currentStepDesc: "waiting apply"
+        },
+        {
+            id: 2,
+            title: 'Card 1',
+            desc: desc,
+            image: 'https://imgwork.tooopen.com/20210518/tooopen_v1737383738f6468c8b-bd40-43b0-8e5c-629c01543182.jpg',
+            currentStep: 1,
+            currentStepDesc: "applying"
+        },
+
+        {
+            id: 3,
+            title: 'Card 1',
+            desc: desc,
+            image: 'https://imgwork.tooopen.com/20210518/tooopen_v1737383738f6468c8b-bd40-43b0-8e5c-629c01543182.jpg',
+            currentStep: 0,
+            currentStepDesc: "waiting apply"
+        },
+
+        {
+            id: 4,
+            title: 'Card 1',
+            desc: desc,
+            image: 'https://imgwork.tooopen.com/20210518/tooopen_v1737383738f6468c8b-bd40-43b0-8e5c-629c01543182.jpg',
+            currentStep: 2,
+            currentStepDesc: "waiting apply"
+        },
+
+    ]);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+    const [isAdmin, setIsAdmin] = useState(true)
+
+    const [isTeacher, setIsTeacher] = useState(true)
+
+    const [isStudent, setIsStudent] = useState(true)
+
+
+    console.log('props', props)
+    return (<div>
+        <div>
+            <Button onClick={() => {
+                setIsModalOpen(true)
+            }} style={{marginLeft: '10px', marginTop: '10px'}} type={'primary'}> Publish a message</Button>
+        </div>
+        <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '10px'
+        }}>
+
+            {cardInfoList.map((item) => (
+                <Card
+                    style={{maxWidth: 400, margin: '10px', border: '0.5px solid red'}}
+                    cover={<img alt="Applying" src={item.image} style={{height: 300}}/>}
+                >
+                    <Card.Meta title={<strong>{item.currentStepDesc}</strong>}/>
+                    <Steps size="small" status="error" current={item.currentStep} style={{marginTop: 20}}
+                           items={[
+                               {
+                                   title: 'Finished',
+                               },
+                               {
+                                   title: 'In Progress',
+                               },
+                               {
+                                   title: 'Waiting',
+                               },
+                           ]}
+                    />
+                    <div style={{marginBottom: '10px'}}>
+                        <Popover placement="top" trigger="click"
+                                 content={<div
+                                     style={{width: '300px', maxHeight: '300px', textWrap: 'wrap', overflowY: 'auto'}}>
+                                     <HTMLPreview htmlContent={item.desc}/></div>}>
+                            <a>dogificate desc</a>
+                        </Popover>
+                    </div>
+                    <div>
+                        <Popover content={<p>display reject reason</p>} trigger="click">
+                            <a style={{color: '#095672'}} type={"primary"}>show result</a>
+                        </Popover>
+                    </div>
+                    <Button type="primary">apply</Button>
+                    <Button style={{marginLeft: '10px', marginTop: '10px'}} type={'primary'}> post a comment</Button>
+                </Card>
+
+            ))}
+            <CreateCommonForm onCancel={() => {
+                setIsModalOpen(false)
+            }} onCreate={(values) => {
+                console.log('values', values)
+            }} key={'11'} visible={isModalOpen}/>
+        </div>
+
+    </div>)
+}
